@@ -1,0 +1,16 @@
+# @host = 03-pokedex-production-3ab7.up.railway.app
+@host = localhost:3000
+
+
+###  get all
+GET http://{{host}}/test
+
+
+###  post
+POST http://localhost:3000/productsv1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}

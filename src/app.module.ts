@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Productsv1Module } from './productsv1/productsv1.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     }),
     ProductsModule,
+    Productsv1Module,
   ],
   controllers: [],
   providers: [],
