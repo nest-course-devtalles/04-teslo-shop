@@ -1,26 +1,95 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateProductsv1Dto } from './dto/create-productsv1.dto';
 import { UpdateProductsv1Dto } from './dto/update-productsv1.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { ProductV1 } from './entities/productsv1.entity';
+import { Repository } from 'typeorm';
+import { PaginationDTO } from 'src/common/dtos/pagination.dto';
+import { validate as isUUID } from 'uuid';
 
 @Injectable()
 export class Productsv1Service {
-  create(createProductsv1Dto: CreateProductsv1Dto) {
-    return 'This action adds a new productsv1';
+  private readonly logger = new Logger('Productsv1Service');
+  constructor(
+    @InjectRepository(ProductV1)
+    private readonly productRepository: Repository<ProductV1>,
+  ) {}
+
+  async create(createProductsv1Dto: CreateProductsv1Dto) {
+    try {
+      const product = this.productRepository.create(createProductsv1Dto);
+      await this.productRepository.save(product);
+      return product;
+    } catch (error) {
+      this.handleDbExceptions(error);
+    }
   }
 
-  findAll() {
-    return `This action returns all productsv1`;
+  async findAll(paginationDTO: PaginationDTO) {
+    const { limit = 10, offset = 0 } = paginationDTO;
+    return await this.productRepository.find({
+      take: limit,
+      skip: offset,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} productsv1`;
+  async findOne(term: string) {
+    let product: ProductV1;
+    if (isUUID(term)) {
+      product = await this.productRepository.findOneBy({ id: term });
+    } else {
+      const queryBuilder = this.productRepository.createQueryBuilder();
+      product = await queryBuilder
+        .where(`UPPER(title)=:title or LOWER(slug)=:slug`, {
+          title: term.toUpperCase(),
+          slug: term.toLocaleLowerCase(),
+        })
+        .getOne();
+    }
+
+    if (!product) {
+      throw new NotFoundException(`Product with ${term} not found`);
+    }
+    return product;
   }
 
-  update(id: number, updateProductsv1Dto: UpdateProductsv1Dto) {
-    return `This action updates a #${id} productsv1`;
+  async update(id: string, updateProductsv1Dto: UpdateProductsv1Dto) {
+    const product = await this.productRepository.preload({
+      id: id,
+      ...updateProductsv1Dto,
+    });
+    if (!product)
+      throw new NotFoundException(`Product with id: ${id} not found`);
+
+    try {
+      await this.productRepository.save(product);
+      return product;
+    } catch (error) {
+      this.handleDbExceptions(error);
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} productsv1`;
+  async remove(id: string) {
+    // remove
+    const productToRemove = await this.findOne(id);
+    return this.productRepository.remove(productToRemove);
+
+    // delete
+    //  return this.productRepository.delete({ id });
   }
+
+  private handleDbExceptions = (error: any) => {
+    console.log(error);
+    if (error.code === '23505') {
+      throw new BadRequestException(error.detail);
+    }
+    this.logger.error(error);
+    throw new InternalServerErrorException('An error has ocurred , check logs');
+  };
 }

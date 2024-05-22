@@ -3,14 +3,36 @@
 
 
 ###  get all
-GET http://{{host}}/test
+GET http://{{host}}/products?limit=1&offset=1\
+###
+GET http://{{host}}/products?limit=100
 
+###  get by id
+GET http://{{host}}/products/Shirt ac'milan7
+
+###  delete by id
+DELETE  http://{{host}}/products/bc38b27a-129f-47f9-a64f-941c2ca4d6dd
 
 ###  post
-POST http://localhost:3000/productsv1
+POST http://{{host}}/products
 content-type: application/json
 
 {
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+    "title": "shirt ac'milan10",
+    "sizes": ["SM", "M", "L", "XT"],
+    "gender": "men",
+    "price": 16.82
+
 }
+
+###  update
+PATCH  http://{{host}}/products/027a0412-72db-44f0-bc18-d8c09548a94c
+content-type: application/json
+
+{
+
+  "tags": [1,2]
+}
+
+###
+GET https://pokeapi.co/api/v2/ability/1

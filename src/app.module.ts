@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Productsv1Module } from './productsv1/productsv1.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -18,8 +18,8 @@ import { Productsv1Module } from './productsv1/productsv1.module';
       autoLoadEntities: true,
       // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     }),
-    ProductsModule,
     Productsv1Module,
+    CommonModule,
   ],
   controllers: [],
   providers: [],

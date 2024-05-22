@@ -7,10 +7,10 @@
 1. clone repository
 2. yarn 
 3. up database 
-4. clone .env and rename with name .env
-5. Fill your environment variables
-
 ```
 docker-compose up -d 
 ```
+4. clone .env and rename with name .env
+5. Fill your environment variables
+
 6. yarn start:dev
