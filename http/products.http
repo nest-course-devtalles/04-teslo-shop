@@ -35,3 +35,7 @@ content-type: application/json
 
 ###  delete by id
 DELETE  http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+
+### SEED
+
+GET http://{{host}}/seed
