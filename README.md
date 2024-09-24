@@ -10,7 +10,7 @@
 ```
 docker-compose up -d 
 ```
-4. clone .env and rename with name .env
+4. clone .env.template and rename with name .env
 5. Fill your environment variables
 
 6. yarn start:dev
