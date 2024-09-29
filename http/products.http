@@ -3,25 +3,24 @@
 
 
 ###  get all
-GET http://{{host}}/products?limit=1&offset=1\
+GET http://{{host}}/products?limit=1&offset=2
 ###
 GET http://{{host}}/products?limit=100
 
-###  get by id
-GET http://{{host}}/products/Shirt ac'milan7
+###  get by term
+GET http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
 
-###  delete by id
-DELETE  http://{{host}}/products/bc38b27a-129f-47f9-a64f-941c2ca4d6dd
 
-###  post
+###  create product
 POST http://{{host}}/products
 content-type: application/json
 
 {
-    "title": "shirt ac'milan10",
+    "title": "shirt ac'milan17",
     "sizes": ["SM", "M", "L", "XT"],
     "gender": "men",
-    "price": 16.82
+    "price": 16.82,
+    "images":["http://image1.jpg", "http://image2.jpg"]
 
 }
 
@@ -30,9 +29,17 @@ PATCH  http://{{host}}/products/027a0412-72db-44f0-bc18-d8c09548a94c
 content-type: application/json
 
 {
-
-  "tags": [1,2]
+  "images": [ "http://image3.jpg"],
+  "tags": ["1"]
 }
 
-###
-GET https://pokeapi.co/api/v2/ability/1
+###  delete by id
+DELETE  http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+
+### SEED
+
+GET http://{{host}}/seed
+
+
+### get image product
+GET http://{{host}}/files/product/1473809-00-A_1_2000.jpg
