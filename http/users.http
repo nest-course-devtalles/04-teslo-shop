@@ -1,0 +1,28 @@
+# @host = 03-pokedex-production-3ab7.up.railway.app
+@host = localhost:3000
+
+### create user
+POST http://{{host}}/auth/register
+content-type: application/json
+
+{
+   "email": "htipantuna12@gmail.com",
+   "password": "Axbycz321",
+   "fullName": "henry Gustav"
+}
+
+
+### login user
+POST http://{{host}}/auth/login
+content-type: application/json
+
+{
+   "email": "htipantuna10@gmail.com",
+   "password": "Axbycz321"
+}
+
+
+### test private 
+GET http://{{host}}/auth/private
+Content-Type: application/json
+Authorization: Bearer 1yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODA1MTg2NiwiZXhwIjoxNzI4MDU5MDY2fQ.KZodr3YIMlM-AM7AvElMLsts82VricwKyGQkWGWLfJ0
