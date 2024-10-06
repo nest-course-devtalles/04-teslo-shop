@@ -25,4 +25,14 @@ content-type: application/json
 ### test private 
 GET http://{{host}}/auth/private
 Content-Type: application/json
-Authorization: Bearer 1yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODA1MTg2NiwiZXhwIjoxNzI4MDU5MDY2fQ.KZodr3YIMlM-AM7AvElMLsts82VricwKyGQkWGWLfJ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODA1MTg2NiwiZXhwIjoxNzI4MDU5MDY2fQ.KZodr3YIMlM-AM7AvElMLsts82VricwKyGQkWGWLfJ0
+
+### test private2 
+GET http://{{host}}/auth/private2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2MTQ1NiwiZXhwIjoxNzI4MTY4NjU2fQ.Eq9YF20SOCbNmp1I42685D7Mzgvec47g0hIvo5umQnQ
+
+### test private3
+GET http://{{host}}/auth/private3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM

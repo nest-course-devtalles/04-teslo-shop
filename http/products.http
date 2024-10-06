@@ -4,16 +4,21 @@
 
 ###  get all
 GET http://{{host}}/products?limit=1&offset=2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+
 ###
 GET http://{{host}}/products?limit=100
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 ###  get by term
 GET http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 
 ###  create product
 POST http://{{host}}/products
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 {
     "title": "shirt ac'milan17",
@@ -27,6 +32,7 @@ content-type: application/json
 ###  update
 PATCH  http://{{host}}/products/027a0412-72db-44f0-bc18-d8c09548a94c
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 {
   "images": [ "http://image3.jpg"],
@@ -35,11 +41,9 @@ content-type: application/json
 
 ###  delete by id
 DELETE  http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 ### SEED
 
 GET http://{{host}}/seed
-
-
-### get image product
-GET http://{{host}}/files/product/1473809-00-A_1_2000.jpg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM

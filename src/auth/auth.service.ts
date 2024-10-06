@@ -10,7 +10,7 @@ import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './dto/login-user.dto';
-import { JwtPayload } from 'src/interfaces/jwt-payload.interfaces';
+import { JwtPayload } from 'src/interfaces/';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
