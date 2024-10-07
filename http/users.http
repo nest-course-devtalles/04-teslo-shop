@@ -17,7 +17,7 @@ POST http://{{host}}/auth/login
 content-type: application/json
 
 {
-   "email": "htipantuna10@gmail.com",
+   "email": "test1@gmail.com",
    "password": "Axbycz321"
 }
 
@@ -36,3 +36,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1L
 GET http://{{host}}/auth/private3
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+
+### check auth status
+GET http://{{host}}/auth/check-auth-status
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5NzY0NmMzLTY1YjAtNGU3MC1iYzRjLTQwNDVhM2QyYzViNyIsImlhdCI6MTcyODM0MDQzMiwiZXhwIjoxNzI4MzQ3NjMyfQ.nJA_I4HXiNitguVerwhrts2limhqj2YCUpOakyMva5w

@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   InternalServerErrorException,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -12,6 +13,8 @@ import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './dto/login-user.dto';
 import { JwtPayload } from 'src/interfaces/';
 import { JwtService } from '@nestjs/jwt';
+import { IncomingHttpHeaders } from 'http';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable()
 export class AuthService {
@@ -65,8 +68,25 @@ export class AuthService {
   }
 
   private getJWTToken(payload: JwtPayload) {
-    console.log({ payload });
+    console.log({ getJWTT: payload });
     const token = this.jwtService.sign(payload);
     return token;
+  }
+
+  async checkAuthStatus(user: User) {
+    try {
+      delete user.roles;
+      delete user.isActive;
+      return {
+        ...user,
+        token: this.getJWTToken({ id: user.id }),
+      };
+    } catch (error) {
+      console.log({ error });
+      throw new InternalServerErrorException('Token not valid');
+    }
+
+    // const token = this.jwtService.sign(payload);
+    // return token;
   }
 }

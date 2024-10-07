@@ -1,6 +1,6 @@
 # @host = 03-pokedex-production-3ab7.up.railway.app
 @host = localhost:3000
-
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODMzMzAxNiwiZXhwIjoxNzI4MzQwMjE2fQ.2xjZ0rfoX3ux-eZpocMAySZM-ZGcmJ9nT6yrr6gU1I8
 
 ###  get all
 GET http://{{host}}/products?limit=1&offset=2
@@ -12,16 +12,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1L
 
 ###  get by term
 GET http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+Authorization: Bearer {{token}}
 
 
 ###  create product
 POST http://{{host}}/products
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+Authorization: Bearer {{token}}
 
 {
-    "title": "shirt ac'milan17",
+    "title": "shirt ac'milan18",
     "sizes": ["SM", "M", "L", "XT"],
     "gender": "men",
     "price": 16.82,
@@ -32,7 +32,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1L
 ###  update
 PATCH  http://{{host}}/products/027a0412-72db-44f0-bc18-d8c09548a94c
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+Authorization: Bearer {{token}}
 
 {
   "images": [ "http://image3.jpg"],
@@ -41,9 +41,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1L
 
 ###  delete by id
 DELETE  http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+Authorization: Bearer {{token}}
 
 ### SEED
 
 GET http://{{host}}/seed
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
+Authorization: Bearer {{token}}
