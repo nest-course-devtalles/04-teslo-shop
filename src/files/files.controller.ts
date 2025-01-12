@@ -2,8 +2,6 @@ import {
   Controller,
   Get,
   Post,
-  Body,
-  Patch,
   Param,
   Delete,
   UploadedFile,
@@ -17,7 +15,9 @@ import { diskStorage } from 'multer';
 import { fileFilter, fileNamer } from './helpers';
 import { Response } from 'express';
 import { ConfigService } from '@nestjs/config';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Files -  Get and upload')
 @Controller('files')
 export class FilesController {
   constructor(
@@ -47,7 +47,7 @@ export class FilesController {
   )
   uploadProductImage(@UploadedFile() file: Express.Multer.File) {
     if (!file) {
-      throw new BadRequestException('Make sure ethat file is an image');
+      throw new BadRequestException('Make sure that file is an image');
     }
     const secureUrl = `${this.configService.get('HOST_API')}files/product/${file.filename}`;
     return { secureUrl };

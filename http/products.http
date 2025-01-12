@@ -1,36 +1,36 @@
 # @host = 03-pokedex-production-3ab7.up.railway.app
 @host = localhost:3000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODMzMzAxNiwiZXhwIjoxNzI4MzQwMjE2fQ.2xjZ0rfoX3ux-eZpocMAySZM-ZGcmJ9nT6yrr6gU1I8
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5NzY0NmMzLTY1YjAtNGU3MC1iYzRjLTQwNDVhM2QyYzViNyIsImlhdCI6MTczNjY0NTcxMSwiZXhwIjoxNzM2NjUyOTExfQ.XcvnijYtqcJJ9volFSaCHuonoKpL6Be4uXMhMPE-1pI
 
 ###  get all
-GET http://{{host}}/products?limit=1&offset=2
+GET http://{{host}}/api/products?limit=1&offset="2"
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 ###
-GET http://{{host}}/products?limit=100
+GET http://{{host}}/api/products?limit=100
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1YmZjMjU1LWFiOTUtNDRjNC04NjFmLWRkNDg1YTZmMTc4NSIsImlhdCI6MTcyODE2NzIwMCwiZXhwIjoxNzI4MTc0NDAwfQ.U25ysUfSxZpc77Y1XsTfTvtNPGLf_sqw1TrbVsFDmeM
 
 ###  get by term
-GET http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+GET http://{{host}}/api/products/f555d376-e844-41de-ab40-b6efec541ad8
 Authorization: Bearer {{token}}
 
 
 ###  create product
-POST http://{{host}}/products
+POST http://{{host}}/api/products
 content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "title": "shirt ac'milan18",
-    "sizes": ["SM", "M", "L", "XT"],
-    "gender": "men",
+    "title": "shirt ac'milan22",
+    "sizes": [ "M", "L", "XT"],
+    "gender": null,
     "price": 16.82,
     "images":["http://image1.jpg", "http://image2.jpg"]
 
 }
 
 ###  update
-PATCH  http://{{host}}/products/027a0412-72db-44f0-bc18-d8c09548a94c
+PATCH  http://{{host}}/api/products/027a0412-72db-44f0-bc18-d8c09548a94c
 content-type: application/json
 Authorization: Bearer {{token}}
 
@@ -40,10 +40,10 @@ Authorization: Bearer {{token}}
 }
 
 ###  delete by id
-DELETE  http://{{host}}/products/f555d376-e844-41de-ab40-b6efec541ad8
+DELETE  http://{{host}}/api/products/f555d376-e844-41de-ab40-b6efec541ad8
 Authorization: Bearer {{token}}
 
 ### SEED
 
-GET http://{{host}}/seed
+GET http://{{host}}/api/seed
 Authorization: Bearer {{token}}

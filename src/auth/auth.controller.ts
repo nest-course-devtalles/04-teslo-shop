@@ -3,9 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Patch,
-  Param,
-  Delete,
   UseGuards,
   Req,
   Headers,
@@ -21,9 +18,11 @@ import { IncomingHttpHeaders } from 'http';
 import { UserRoleGuard } from './guards/user-role/user-role.guard';
 import { RoleProtected } from './decorators/';
 import { ValidRoles } from 'src/interfaces';
+import { ApiTags } from '@nestjs/swagger';
 // import { CreateAuthDto } from './dto/create-auth.dto';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -40,13 +39,9 @@ export class AuthController {
 
   @Auth()
   @Get('check-auth-status')
-  checkAuthStatus(
-    @GetUser() user: User,
-
-  ) {
+  checkAuthStatus(@GetUser() user: User) {
     return this.authService.checkAuthStatus(user);
   }
-
 
   @UseGuards(AuthGuard('jwt'))
   @Get('private')
